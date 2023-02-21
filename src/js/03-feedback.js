@@ -1,8 +1,8 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
-// const input = document.querySelector('.feedback-form input');
-// const textarea = document.querySelector('.feedback-form textarea');
+const input = document.querySelector('.feedback-form input');
+const textarea = document.querySelector('.feedback-form textarea');
 
 const STORAGE_KEY = 'feedback-form-state';
 let formData = {};
@@ -34,6 +34,21 @@ function savedData() {
     const formKeys = Object.keys(savedData);
     formKeys.map(element => {
       document.querySelector(`[name='${element}']`).value = savedData[element];
+      formData[element] = savedData[element];
     });
   }
 }
+
+// -----------------------------------------------------------
+
+// function savedData() {
+//   if (load(STORAGE_KEY)) {
+//     const outputForm = load(STORAGE_KEY);
+//     const formKeys = Object.keys(outputForm);
+//     formKeys.map(element => {
+//       document.querySelector(`[name='${element}']`).value = outputForm[element];
+//     });
+//   }
+// }
+
+// ----------------------------------------------------------
