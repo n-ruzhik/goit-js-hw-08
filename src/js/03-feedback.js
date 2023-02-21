@@ -10,7 +10,7 @@ let formData = {};
 form.addEventListener('input', throttle(onTextInput, 500));
 form.addEventListener('submit', onFormSubmit);
 
-savedData();
+populateFormData();
 
 function onTextInput(evt) {
   formData[evt.target.name] = evt.target.value;
@@ -28,7 +28,7 @@ function onFormSubmit(evt) {
   formData = {};
 }
 
-function savedData() {
+function populateFormData() {
   const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (savedData) {
     const formKeys = Object.keys(savedData);
